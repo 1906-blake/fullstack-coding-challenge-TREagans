@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { RouteComponentProps } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 interface Param {
@@ -65,6 +66,11 @@ export default class List extends Component<Props, State> {
           <div>
             <div className='list'>
               <div className='container'>
+                <Link to='/grocery-list'>
+                  <button className='btn btn-primary backBtn'>
+                    Back to List
+                  </button>
+                </Link>
                 <h1>{this.state.list.name}</h1>
                 <table className='table table-hover'>
                   <thead>

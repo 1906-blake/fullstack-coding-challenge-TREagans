@@ -21,4 +21,8 @@ public class ItemService {
 	public List<GroceryItems> findAll() {
 		return itemRepo.findAll();
 	}
+	
+//	public List<GroceryItems> getItemsByList(int listId) {
+//		return itemRepo.getItemsByListHQL(listId);
+//	}
 }

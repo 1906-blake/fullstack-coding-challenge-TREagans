@@ -104,7 +104,9 @@ export default class GroceryList extends Component<Props, State> {
                  };
 
 
-                 deleteList = () => {};
+                 deleteList = (id:any) => {
+                    
+                 };
 
                  render() {
                    return (

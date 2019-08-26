@@ -15,6 +15,7 @@ const App: React.FC = (props:any) => {
 
         <Switch>
           <Route path='/grocery-lists/:id' component={List} />
+          <Route path='/grocery-lists' component={GroceryList} />
           <Route path='/' component={GroceryList} />
         </Switch>
       </BrowserRouter>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.thas.models.GroceryItems;
 import com.thas.models.GroceryList;
 import com.thas.services.ListService;
 
@@ -41,8 +42,8 @@ public class GroceryListController {
 	
 	// add new item to a grocery list
 //	@PostMapping("/{itemId}/items")
-//	public GroceryList addNewItem(@PathVariable int item, @RequestBody GroceryItems newitem) {
-//		return listService.addNewItem(item, newitem);
+//	public GroceryList addNewItem(@PathVariable int listId, GroceryItems item) {
+//		return listService.addNewItem(listId, item);
 //	}
 	
 	// delete item from list
