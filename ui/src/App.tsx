@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, RouteComponentProps } from 'react-router-dom';
+import GroceryList from './components/GroceryList';
 import './animate.css';
 import './App.css';
 import './styles.css';
-import State from './components/state/state';
-// import Home from './components/home/home.component';
-// import Navbar from './components/navbar/navbar.component';
-// import BookDetails from './components/book/bookdetails.component';
-// import Login from './components/login/login.component';
+import List from './components/List';
 
 interface Props extends RouteComponentProps {
 
@@ -16,7 +13,6 @@ interface Props extends RouteComponentProps {
 const App: React.FC = (props:any) => {
   return (
     <div className='App'>
-      <State maxNum={12}/>
       <BrowserRouter>
         {/* <Navbar
           location={props.location}
@@ -25,9 +21,9 @@ const App: React.FC = (props:any) => {
         /> */}
 
         <Switch>
-          {/* <Route path='/books/:id' component={BookDetails} />
-          <Route path='/login' component={Login} />
-          <Route path='/' component={Home} /> */}
+          <Route path='/grocery-lists/:id' component={List} />
+          {/* <Route path='/login' component={Login} /> */} 
+          <Route path='/' component={GroceryList} />
         </Switch>
       </BrowserRouter>
     </div>

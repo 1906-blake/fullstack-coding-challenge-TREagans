@@ -34,6 +34,11 @@ public class GroceryListController {
 		return listService.saveAndFlush(list);
 	}
 	
+	@GetMapping("/{listId}")
+	public GroceryList getOne(@PathVariable int listId) {
+		return listService.getOne(listId);
+	}
+	
 	// add new item to a grocery list
 //	@PostMapping("/{itemId}/items")
 //	public GroceryList addNewItem(@PathVariable int item, @RequestBody GroceryItems newitem) {

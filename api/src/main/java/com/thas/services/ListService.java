@@ -31,6 +31,11 @@ public class ListService {
 		listRepo.deleteById(listId);;
 	}
 
+
+	public GroceryList getOne(int listId) {
+		return listRepo.getOne(listId);
+	}
+
 //	public GroceryList deleteList(int listId) {
 //		return listRepo.deleteAll(listId);
 //	}

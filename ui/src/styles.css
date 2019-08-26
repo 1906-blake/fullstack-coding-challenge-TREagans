@@ -1,0 +1,6 @@
+.grocery-list, .list {
+    margin: 6em 0;
+}
+.viewIcon {
+    cursor: pointer;
+}
