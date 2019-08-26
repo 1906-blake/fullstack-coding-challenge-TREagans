@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+ install:
+   runtime-versions:
+     java: openjdk8
+ build:
+   commands:
+     - mvn -Dmaven.test.skip=true package
+artifacts:
+ files:
+   - '**/*'
+ base-directory: 'target'
