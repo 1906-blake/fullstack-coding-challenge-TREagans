@@ -51,6 +51,15 @@ export default class List extends Component<Props, State> {
         }
     }
 
+    getList = async () => {
+
+        try {
+            // const req = await fetch('http://localhost:8012/items');
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     render() {
         return (
           <div>

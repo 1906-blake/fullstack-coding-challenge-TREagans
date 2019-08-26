@@ -31,5 +31,8 @@ public class GroceryItemsController {
 	public GroceryItems addNewItem(@RequestBody GroceryItems item) {
 		return itemService.saveAndFlush(item);
 	}
+	
+//	@GetMapping("/{listId}")
+//	public List<GroceryItems> viewListById(@PathVariable int id)
 
 }
