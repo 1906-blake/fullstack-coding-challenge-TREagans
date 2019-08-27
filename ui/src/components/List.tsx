@@ -79,7 +79,7 @@ export default class List extends Component<Props, State> {
                   </thead>
                   <tbody>
                     {/* {console.log('Mylist', this.state.list)} */}
-                    {myListItems.map((listItem: any, index: any) => 
+                    {/* {myListItems.map((listItem: any, index: any) => 
                     
                         <tr key={listItem.itemId}>
                           <td>{listItem.itemId}</td>
@@ -88,7 +88,7 @@ export default class List extends Component<Props, State> {
                           <td>{listItem.category}</td>
                         </tr>
                     
-                    )}
+                    )} */}
                     {/* {this.state.lists.map((listVal: any, index: any) => {
                   return (
                     <tr key={index}>
