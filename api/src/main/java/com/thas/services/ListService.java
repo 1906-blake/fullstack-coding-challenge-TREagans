@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.thas.models.GroceryItems;
 import com.thas.models.GroceryList;
+import com.thas.repos.ItemRepo;
 import com.thas.repos.ListRepo;
 
 @Service
@@ -15,6 +16,9 @@ public class ListService {
 	
 	@Autowired
 	private ListRepo listRepo;
+	
+	@Autowired
+	private ItemRepo itemRepo;
 
 	
 	public List<GroceryList> findAll() {
@@ -28,12 +32,29 @@ public class ListService {
 
 
 	public void deleteById(int listId) {
-		listRepo.deleteById(listId);;
+		List<GroceryItems> groceryItems = itemRepo.findByListListId(listId);
+		
+		// delete FK prior to deleting list
+		for(int i = 0; i < groceryItems.size(); i++) {
+			itemRepo.deleteById(groceryItems.get(i).getItemId());
+		}
+		listRepo.deleteById(listId);
 	}
 
 
 	public GroceryList getOne(int listId) {
 		return listRepo.getOne(listId);
+	}
+
+
+	public GroceryList saveAndFlush(int listid, GroceryItems item) {
+		return listRepo.saveAndFlush(item);
+	}
+
+
+	public GroceryList delete(int itemId) {
+		itemRepo.deleteById(itemId);
+		return null;
 	}
 
 

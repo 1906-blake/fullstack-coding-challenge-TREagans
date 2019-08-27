@@ -28,7 +28,7 @@ public class GroceryItems {
 	// id from the GroceryList table
 	@ManyToOne
 	@JoinColumn(name = "listid")
-	private GroceryList id;
+	private GroceryList list;
 
 	
 	public GroceryItems() {
@@ -42,7 +42,7 @@ public class GroceryItems {
 		this.itemId = itemId;
 		this.name = name;
 		this.category = category;
-		this.id = id;
+		this.list = id;
 	}
 
 
@@ -76,13 +76,13 @@ public class GroceryItems {
 	}
 
 
-	public GroceryList getId() {
-		return id;
+	public GroceryList getList() {
+		return list;
 	}
 
 
-	public void setId(GroceryList id) {
-		this.id = id;
+	public void setList(GroceryList list) {
+		this.list = list;
 	}
 
 
@@ -91,8 +91,8 @@ public class GroceryItems {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + itemId;
+		result = prime * result + ((list == null) ? 0 : list.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -112,12 +112,12 @@ public class GroceryItems {
 				return false;
 		} else if (!category.equals(other.category))
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
 		if (itemId != other.itemId)
+			return false;
+		if (list == null) {
+			if (other.list != null)
+				return false;
+		} else if (!list.equals(other.list))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -130,6 +130,12 @@ public class GroceryItems {
 
 	@Override
 	public String toString() {
-		return "GroceryItems [itemId=" + itemId + ", name=" + name + ", category=" + category + ", id=" + id + "]";
-	}	
+		return "GroceryItems [itemId=" + itemId + ", name=" + name + ", category=" + category + ", list=" + list + "]";
+	}
+
+	
+
+
+
+	
 }

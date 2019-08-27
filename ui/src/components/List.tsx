@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { RouteComponentProps } from 'react-router';
-import { Link } from 'react-router-dom';
 
 
 interface Param {
@@ -11,7 +10,7 @@ interface Props extends RouteComponentProps<Param> {
 }
 
 interface State {
-    list:any;
+    list:[];
     id:any;
 }
 
@@ -23,55 +22,51 @@ export default class List extends Component<Props, State> {
         const id = this.props.match.params.id;
 
         this.state = {
-            list: {},
+            list: [],
             id,
         }
     }
 
     componentDidMount = async () => {
-        try {
-            const req = await fetch(
-              `http://localhost:8012/grocery-lists/${this.state.id}`,
-              {
-                headers: {
-                  'content-type': 'application/json',
-                },
-              },
-            );
-
-            const list = await req.json();
-
-            this.setState({
-                ...this.state,
-                list
-            });
-
-            console.log(list);
-        } catch (err) {
-            console.log(err);
-        }
+        this.getList();
     }
 
     getList = async () => {
 
         try {
-            // const req = await fetch('http://localhost:8012/items');
+          const req = await fetch(
+            `http://localhost:8012/grocery-lists/${this.state.id}`,
+            {
+              headers: {
+                'content-type': 'application/json',
+              },
+            },
+          );
+
+          const list = await req.json();
+
+          this.setState({
+            list,
+          });
+
+          // console.log(list);
         } catch (err) {
-            console.log(err);
+          console.log(err);
         }
     }
 
     render() {
+        const myListItems = this.state.list;
         return (
           <div>
             <div className='list'>
               <div className='container'>
-                <Link to='/grocery-list'>
-                  <button className='btn btn-primary backBtn'>
-                    Back to List
-                  </button>
-                </Link>
-                <h1>{this.state.list.name}</h1>
+                {/* <Link to='/grocery-list'> */}
+                <button className='btn btn-primary backBtn'>
+                  Back to List
+                </button>
+                {/* </Link> */}
+                {/* <h1>{this.state.list[0].name}</h1> */}
                 <table className='table table-hover'>
                   <thead>
                     <tr>
@@ -83,6 +78,17 @@ export default class List extends Component<Props, State> {
                     </tr>
                   </thead>
                   <tbody>
+                    {/* {console.log('Mylist', this.state.list)} */}
+                    {myListItems.map((listItem: any, index: any) => 
+                    
+                        <tr key={listItem.itemId}>
+                          <td>{listItem.itemId}</td>
+                          <td>{listItem.name}</td>
+                          <td>{listItem.description}</td>
+                          <td>{listItem.category}</td>
+                        </tr>
+                    
+                    )}
                     {/* {this.state.lists.map((listVal: any, index: any) => {
                   return (
                     <tr key={index}>

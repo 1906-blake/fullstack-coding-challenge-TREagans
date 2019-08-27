@@ -33,10 +33,10 @@ public class GroceryItemsController {
 		return itemService.saveAndFlush(item);
 	}
 	
-//	@GetMapping("list/{listId}")
-//	public List<GroceryItems> getItemsByList(@PathVariable GroceryList listId){
-//	return itemService.getItemsByList(listId.getListId());
-//	}
+	@GetMapping("/list/{listId}")
+	public List<GroceryItems> getItemsByList(@PathVariable int listId){
+	return itemService.getItemsByList(listId);
+	}
 	
 //	@GetMapping("/{listId}")
 //	public List<GroceryItems> viewListById(@PathVariable int id)

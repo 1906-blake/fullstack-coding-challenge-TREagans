@@ -47,10 +47,10 @@ public class GroceryListController {
 //	}
 	
 	// delete item from list
-//	@DeleteMapping("/{listId}/items/items/{itemId")
-//	public GroceryList listId(@PathVariable int listid, @PathVariable int itemid) {
-//		return listService.listId(listid, itemid);
-//	}
+	@DeleteMapping("/{listId}/items/{itemId}")
+	public GroceryList listId(@PathVariable int listId, @PathVariable int itemId) {
+		return listService.delete(itemId);
+	}
 	
 	// delete list
 	@DeleteMapping("/{listId}")

@@ -104,8 +104,18 @@ export default class GroceryList extends Component<Props, State> {
                  };
 
 
-                 deleteList = (id:any) => {
-                    
+                 deleteList = async (id:number) => {
+                    try {
+                        await fetch('http://localhost:8012/grocery-lists/'+id, {
+                          method: 'DELETE',
+                          headers: {
+                            'content-type': 'application/json',
+                          }
+                        });
+                    } catch (error) {
+                      console.log(error);   
+                    }
+                    window.location.reload();
                  };
 
                  render() {
@@ -142,12 +152,16 @@ export default class GroceryList extends Component<Props, State> {
                                        />
                                      </td>
                                      <td>
-                                       <img
-                                         className='deleteIcon'
-                                         src={Trash}
-                                         alt='trash can icon'
-                                         onClick={this.deleteList}
-                                       />
+                                       <button
+                                         onClick={() => {
+                                           this.deleteList(listVal.listId);
+                                         }}>
+                                         <img
+                                           className='deleteIcon'
+                                           src={Trash}
+                                           alt='trash can icon'
+                                         />
+                                       </button>
                                      </td>
                                    </tr>
                                  );
